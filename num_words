@@ -1,0 +1,170 @@
+//WAP TO PRINT THE GIVEN NO. IN WORDS
+
+#include<stdio.h>
+int dec_1();
+int dec_2();
+int dec_3();
+long int dec_4();
+
+
+int main()
+{
+	long int x;
+	printf("Enter the no. \n");
+	scanf("%ld",&x);
+	if(x==0)
+		printf("zero");
+	else if(x>=1 && x<=9)
+		dec_1(x);
+	else if(x>=10 && x<=19)
+		dec_2(x);
+	else if(x>=20 && x<=99)
+		dec_3(x);
+	else 
+		dec_4(x);
+	printf("\n");
+	return 0;
+}
+
+int dec_1(int k)			
+{			
+	switch(k)
+			{
+				case 1:
+					printf("one ");
+					break;
+				case 2:
+					printf("two ");
+					break;
+				case 3:
+					printf("three ");
+					break;
+				case 4:
+					printf("four ");
+					break;
+				case 5:
+					printf("five ");
+					break;
+				case 6:
+					printf("six ");
+					break;
+				case 7:
+					printf("seven ");
+					break;
+				case 8:
+					printf("eight ");
+					break;
+				case 9:
+					printf("nine ");
+					break;
+			}
+	return 0;
+}
+
+int dec_2(int k)			
+{			
+	switch(k)
+			{
+				case 10:
+					printf("ten ");
+					break;
+				case 11:
+					printf("eleven ");
+					break;
+				case 12:
+					printf("twelve ");
+					break;
+				case 13:
+					printf("thirteen ");
+					break;
+				case 14:
+					printf("fourteen ");
+					break;
+				case 15:
+					printf("fifteen ");
+					break;
+				case 16:
+					printf("sixteen ");
+					break;
+				case 17:
+					printf("seventeen ");
+					break;
+				case 18:
+					printf("eighteen ");
+					break;
+				case 19:
+					printf("nineteen ");
+					break;
+			}
+	return 0;
+}
+
+int dec_3(int k)
+{	
+	if(k>=1 && k<=9)
+			dec_1(k);
+	else if(k>=20 && k<30)
+		printf("Twenty ");
+	else if(k>=30 && k<40)
+		printf("Thirty ");
+	else if(k>=40 && k<50)
+		printf("Forty ");
+	else if(k>=50 && k<60)
+		printf("Fifty ");
+	else if(k>=60 && k<70)
+		printf("Sixty ");
+	else if(k>=70 && k<80)
+		printf("Seventy ");
+	else if(k>=80 && k<90)
+		printf("Eighty ");
+	else if(k>=90 && k<=99)
+		printf("Ninety ");
+	if(k>=20 && k<=99)
+		{
+			k=k%10;
+			dec_1(k);
+		}
+	else 
+			dec_2(k);
+	
+	return 0;
+}
+
+long int dec_4(long int z)
+{
+	long int y;
+	if(z>=100 && z<=999)
+		{
+			y=z%100;
+			z=z/100;
+			dec_1(z);
+			printf("Hundred ");
+			dec_3(y);
+		}
+	else if(z>=1000 && z<=99999)
+		{
+			y=z%1000;
+			z=z/1000;
+			dec_3(z);
+			printf("Thousands ");
+			dec_4(y);
+		}
+	else if(z>=100000 && z<=9999999)
+		{
+			y=z%100000;
+			z=z/100000;
+			dec_3(z);
+			printf("Lakhs ");
+			dec_4(y);
+		}
+	else if(z>=10000000 && z<=999999999)
+		{
+			y=z%10000000;
+			z=z/10000000;
+			dec_3(z);
+			printf("Crores ");
+			dec_4(y);
+		}
+	return 0;
+}
+
